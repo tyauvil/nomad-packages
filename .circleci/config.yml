@@ -13,7 +13,9 @@ jobs:
       - run:
           command: ./build.sh
       - run:
-          command: TARGET_HOST=default rspec
+          command: |
+            vagrant up --provision
+            TARGET_HOST=default rspec
 workflows:
   version: 2
   build_and_test:
