@@ -13,7 +13,7 @@ Vagrant.configure("2") do |config|
   config.vm.provision "shell",
     inline: "yum list installed | grep nomad || sudo yum localinstall -y /tmp/build/nomad.rpm"
   config.vm.provision "shell",
-    inline: "sudo cp /tmp/tests/nomad.hcl /etc/nomad/nomad.hcl; chown root:root /etc/nomad/nomad.hcl"
+    inline: "ls -l /tmp/tests; sudo mkdir /etc/nomad; sudo cp /tmp/tests/nomad.hcl /etc/nomad/nomad.hcl; chown root:root /etc/nomad/nomad.hcl"
   config.vm.provision "shell",
     inline: "sudo systemctl restart nomad"
 
