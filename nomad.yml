@@ -1,0 +1,34 @@
+name: "nomad"
+arch: "amd64"
+platform: "linux"
+version: "v${NOMAD_VERSION}"
+# section: "default"
+# priority: "extra"
+replaces:
+- nomad
+provides:
+- nomad
+depends:
+- iproute
+maintainer: "Ty Auvil <ty.auvil@gmail.com>"
+description: |
+  Nomad is a flexible container orchestration tool that enables an organization to easily deploy and manage any containerized or legacy application using a single, unified workflow. Nomad can run a diverse workload of Docker, non-containerized, microservice, and batch applications, and generally offers the following benefits to developers and operators
+vendor: "Hashicorp"
+homepage: "https://nomadproject.io/"
+license: "MPL 2.0"
+bindir: "/usr/bin"
+files:
+  /tmp/pkg/build/nomad: "/usr/bin/nomad"
+  /tmp/pkg/files/nomad.service: "/usr/lib/systemd/system/nomad.service"
+  /tmp/pkg/etc_default_nomad: "/etc/default/nomad"
+config_files:
+  /tmp/pkg/files/default.hcl: "/etc/nomad/default.hcl"
+# overrides:
+#   rpm:
+#     scripts:
+#       preinstall: ./scripts/preinstall.sh
+#       postinstall: ./scripts/postremove.sh
+#   deb:
+#     scripts:
+#       postinstall: ./scripts/postinstall.sh
+#       preremove: ./scripts/preremove.sh

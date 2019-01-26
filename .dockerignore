@@ -1,0 +1,9 @@
+build/
+files/
+spec/
+tests/
+.vagrant/
+README.md
+LICENSE
+Vagrantfile
+Makefile
