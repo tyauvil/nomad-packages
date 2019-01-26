@@ -6,8 +6,10 @@ jobs:
       - run: 
           command: |
             gem install serverspec --no-rdoc --no-ri
-            sudo apt-get update -y
-            sudo apt-get install vagrant -y
+            curl -LO https://releases.hashicorp.com/vagrant/2.2.3/vagrant_2.2.3_x86_64.deb
+            sudo dpkg -i vagrant_2.2.3_x86_64.deb
+            vagrant plugin install vagrant-serverspec
+      - checkout:
       - run:
           command: ./build.sh
       - run:
