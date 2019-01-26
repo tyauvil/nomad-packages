@@ -8,9 +8,9 @@ jobs:
             gem install serverspec --no-rdoc --no-ri
             apt-get install vagrant -y
       - run:
-          command: make build
+          command: ./build.sh
       - run:
-          command: make test
+          command: TARGET_HOST=default rspec
 workflows:
   version: 2
   build_and_test:
