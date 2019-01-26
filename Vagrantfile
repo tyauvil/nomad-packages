@@ -15,6 +15,6 @@ Vagrant.configure("2") do |config|
   config.vm.provision "shell",
     inline: "ls -l /tmp/tests; sudo mkdir /etc/nomad; sudo cp /tmp/tests/nomad.hcl /etc/nomad/nomad.hcl; chown root:root /etc/nomad/nomad.hcl"
   config.vm.provision "shell",
-    inline: "sudo systemctl restart nomad"
+    inline: "sudo systemctl start nomad"
 
 end
