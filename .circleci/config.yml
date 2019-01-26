@@ -6,7 +6,8 @@ jobs:
       - run: 
           command: |
             gem install serverspec --no-rdoc --no-ri
-            apt-get install vagrant -y
+            sudo apt-get update -y
+            sudo apt-get install vagrant -y
       - run:
           command: ./build.sh
       - run:
