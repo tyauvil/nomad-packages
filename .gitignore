@@ -1,4 +1,4 @@
 *.rpm
 *.deb
-build/
+build/nomad*
 .vagrant
