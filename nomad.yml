@@ -2,8 +2,6 @@ name: "nomad"
 arch: "amd64"
 platform: "linux"
 version: "v${NOMAD_VERSION}"
-# section: "default"
-# priority: "extra"
 replaces:
 - nomad
 provides:
@@ -21,14 +19,3 @@ files:
   /tmp/pkg/build/nomad: "/usr/bin/nomad"
   /tmp/pkg/files/nomad.service: "/usr/lib/systemd/system/nomad.service"
   /tmp/pkg/etc_default_nomad: "/etc/default/nomad"
-config_files:
-  /tmp/pkg/files/default.hcl: "/etc/nomad/default.hcl"
-# overrides:
-#   rpm:
-#     scripts:
-#       preinstall: ./scripts/preinstall.sh
-#       postinstall: ./scripts/postremove.sh
-#   deb:
-#     scripts:
-#       postinstall: ./scripts/postinstall.sh
-#       preremove: ./scripts/preremove.sh
