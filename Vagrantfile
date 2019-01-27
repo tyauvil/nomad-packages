@@ -7,13 +7,11 @@ Vagrant.configure("2") do |config|
   end
 
   config.ssh.port = 2222
-  config.vm.synced_folder "./build", "/tmp/build", docker_consistency: "delegated"
-  config.vm.synced_folder "./tests", "/tmp/tests", docker_consistency: "delegated"
 
   config.vm.provision "shell",
-    inline: "yum list installed | grep nomad || sudo yum localinstall -y /tmp/build/nomad.rpm"
+    inline: "yum list installed | grep nomad || sudo yum localinstall -y /vagrant/build/nomad.rpm"
   config.vm.provision "shell",
-    inline: "ls -l /tmp/tests; sudo mkdir /etc/nomad; sudo cp /tmp/tests/nomad.hcl /etc/nomad/nomad.hcl; chown root:root /etc/nomad/nomad.hcl"
+    inline: "sudo cp /vagrant/tests/nomad.hcl /etc/nomad/nomad.hcl; chown root:root /etc/nomad/nomad.hcl"
   config.vm.provision "shell",
     inline: "sudo systemctl start nomad"
 
