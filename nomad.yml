@@ -8,6 +8,7 @@ provides:
 - nomad
 depends:
 - iproute
+- shadow-utils
 maintainer: "Ty Auvil <ty.auvil@gmail.com>"
 description: |
   Nomad is a flexible container orchestration tool that enables an organization to easily deploy and manage any containerized or legacy application using a single, unified workflow. Nomad can run a diverse workload of Docker, non-containerized, microservice, and batch applications, and generally offers the following benefits to developers and operators
@@ -18,4 +19,8 @@ bindir: "/usr/bin"
 files:
   /tmp/pkg/build/nomad: "/usr/bin/nomad"
   /tmp/pkg/files/nomad.service: "/usr/lib/systemd/system/nomad.service"
-  /tmp/pkg/etc_default_nomad: "/etc/default/nomad"
+empty_folders:
+  - /var/lib/nomad
+  - /etc/nomad
+scripts:
+  preinstall: /tmp/pkg/files/preinstall.sh
